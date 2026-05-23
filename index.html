@@ -1,0 +1,1913 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Citadel Academy | Empowering Future Scholars</title>
+<meta name="description" content="Kenya's premier tuition and mentorship academy in Bondo Township. Holiday tuition, international online tutoring, and mentorship for high school students." />
+<meta name="keywords" content="tuition Kenya, Bondo tuition center, KCSE holiday tuition, online tutoring Kenya, high school mentorship Kenya, international online tutoring" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Cinzel:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0f2040;
+    --royal: #1a3a6e;
+    --blue: #2563eb;
+    --cyan: #06b6d4;
+    --gold: #c9a227;
+    --gold-light: #e8c547;
+    --gold-pale: #f5e6b0;
+    --white: #ffffff;
+    --off-white: #f8f9fc;
+    --gray-light: #e8ecf4;
+    --gray: #94a3b8;
+    --text-dark: #0a1628;
+    --text-mid: #334155;
+    --text-light: #64748b;
+    --glass: rgba(255,255,255,0.07);
+    --glass-border: rgba(255,255,255,0.12);
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; font-size: 16px; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ─── SCROLL PROGRESS ─── */
+  #progress-bar {
+    position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+    background: linear-gradient(90deg, var(--gold), var(--cyan));
+    z-index: 9999; transition: width 0.1s linear;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    padding: 1.2rem 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(0px);
+  }
+  nav.scrolled {
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--glass-border);
+    padding: 0.9rem 5%;
+  }
+  .nav-logo {
+    display: flex; align-items: center; gap: 0.6rem; text-decoration: none;
+  }
+  .logo-mark {
+    width: 42px; height: 42px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-weight: 700; font-size: 1rem;
+    color: var(--navy); letter-spacing: 0.05em; flex-shrink: 0;
+  }
+  .logo-text { display: flex; flex-direction: column; line-height: 1; }
+  .logo-text span:first-child {
+    font-family: 'Cinzel', serif; font-weight: 700; font-size: 1.1rem;
+    color: var(--white); letter-spacing: 0.1em;
+  }
+  .logo-text span:last-child {
+    font-size: 0.6rem; color: var(--gold); letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: rgba(255,255,255,0.8); font-size: 0.88rem;
+    font-weight: 500; letter-spacing: 0.05em; transition: color 0.3s;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+    background: var(--gold); transition: width 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy) !important; padding: 0.55rem 1.3rem;
+    border-radius: 4px; font-weight: 600 !important;
+  }
+  .nav-cta::after { display: none !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+  }
+  .hamburger span {
+    display: block; width: 24px; height: 2px; background: var(--white);
+    transition: all 0.3s;
+  }
+  .mobile-menu {
+    display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+    background: var(--navy); z-index: 999; flex-direction: column;
+    align-items: center; justify-content: center; gap: 2rem;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    font-family: 'Cinzel', serif; font-size: 1.4rem; color: var(--white);
+    text-decoration: none; letter-spacing: 0.1em; transition: color 0.3s;
+  }
+  .mobile-menu a:hover { color: var(--gold); }
+  .mobile-close {
+    position: absolute; top: 1.5rem; right: 5%;
+    font-size: 2rem; cursor: pointer; color: var(--white); background: none; border: none;
+  }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+    background: linear-gradient(135deg, #060e1c 0%, #0a1628 40%, #0f2040 70%, #0a1e3a 100%);
+  }
+  .hero-grid {
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(201,162,39,0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,162,39,0.06) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black, transparent);
+  }
+  .hero-orb {
+    position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none;
+  }
+  .hero-orb-1 {
+    width: 600px; height: 600px; top: -200px; right: -100px;
+    background: radial-gradient(circle, rgba(37,99,235,0.2), transparent 70%);
+    animation: float 8s ease-in-out infinite;
+  }
+  .hero-orb-2 {
+    width: 400px; height: 400px; bottom: -100px; left: -100px;
+    background: radial-gradient(circle, rgba(201,162,39,0.15), transparent 70%);
+    animation: float 10s ease-in-out infinite reverse;
+  }
+  .hero-orb-3 {
+    width: 300px; height: 300px; top: 40%; left: 30%;
+    background: radial-gradient(circle, rgba(6,182,212,0.1), transparent 70%);
+    animation: float 12s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-30px) scale(1.05); }
+  }
+  .hero-content {
+    position: relative; z-index: 2; max-width: 1200px; margin: 0 auto;
+    padding: 8rem 5% 4rem; display: grid; grid-template-columns: 1fr 1fr;
+    align-items: center; gap: 4rem; width: 100%;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,162,39,0.12); border: 1px solid rgba(201,162,39,0.3);
+    padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+    font-size: 0.78rem; font-weight: 600; color: var(--gold); letter-spacing: 0.12em;
+    text-transform: uppercase;
+    animation: fadeInUp 0.8s ease both;
+  }
+  .hero-badge::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); animation: pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.5); }
+  }
+  .hero-headline {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+    font-weight: 700; line-height: 1.15;
+    color: var(--white); margin-bottom: 1rem;
+    animation: fadeInUp 0.8s 0.15s ease both;
+  }
+  .hero-headline .gold { color: var(--gold); }
+  .hero-headline .italic {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic; font-weight: 600;
+    color: var(--cyan);
+  }
+  .hero-sub {
+    font-size: 1.1rem; color: rgba(255,255,255,0.7);
+    max-width: 520px; margin-bottom: 2.5rem;
+    animation: fadeInUp 0.8s 0.3s ease both;
+  }
+  .hero-actions {
+    display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 3rem;
+    animation: fadeInUp 0.8s 0.45s ease both;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); padding: 0.9rem 2rem; border: none;
+    border-radius: 6px; font-weight: 700; font-size: 0.95rem;
+    cursor: pointer; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 0.5rem;
+    transition: all 0.3s; letter-spacing: 0.03em;
+    box-shadow: 0 8px 24px rgba(201,162,39,0.25);
+  }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(201,162,39,0.4); }
+  .btn-secondary {
+    background: transparent; color: var(--white);
+    padding: 0.9rem 2rem; border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px; font-weight: 500; font-size: 0.95rem;
+    cursor: pointer; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 0.5rem;
+    transition: all 0.3s;
+  }
+  .btn-secondary:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(255,255,255,0.5);
+  }
+  .btn-outline-gold {
+    background: transparent; color: var(--gold);
+    padding: 0.9rem 2rem; border: 1px solid var(--gold);
+    border-radius: 6px; font-weight: 600; font-size: 0.95rem;
+    cursor: pointer; text-decoration: none; display: inline-flex;
+    align-items: center; gap: 0.5rem;
+    transition: all 0.3s;
+  }
+  .btn-outline-gold:hover { background: rgba(201,162,39,0.1); }
+  .hero-stats {
+    display: flex; gap: 2.5rem;
+    animation: fadeInUp 0.8s 0.6s ease both;
+  }
+  .stat-item { text-align: left; }
+  .stat-number {
+    font-family: 'Cinzel', serif; font-size: 1.9rem; font-weight: 700;
+    color: var(--gold); line-height: 1;
+  }
+  .stat-label { font-size: 0.78rem; color: var(--gray); letter-spacing: 0.08em; text-transform: uppercase; }
+
+  /* Hero Visual */
+  .hero-visual {
+    position: relative; animation: fadeInRight 1s 0.3s ease both;
+  }
+  @keyframes fadeInRight {
+    from { opacity: 0; transform: translateX(40px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .hero-card-main {
+    background: var(--glass);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(20px);
+    border-radius: 20px; padding: 2rem;
+    position: relative; overflow: hidden;
+  }
+  .hero-card-main::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.05), rgba(201,162,39,0.05));
+  }
+  .hero-img-placeholder {
+    width: 100%; aspect-ratio: 4/3; border-radius: 12px;
+    background: linear-gradient(135deg, var(--royal), var(--navy-mid));
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem; position: relative; overflow: hidden;
+  }
+  .hero-img-placeholder::before {
+    content: '';  position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.3), rgba(201,162,39,0.1));
+  }
+  .hero-img-icon { font-size: 3.5rem; position: relative; z-index: 1; }
+  .hero-img-label {
+    font-family: 'Cinzel', serif; font-size: 0.9rem; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.7); position: relative; z-index: 1; text-align: center;
+  }
+  .floating-badge {
+    position: absolute; background: rgba(10,22,40,0.9);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px); border-radius: 12px; padding: 0.8rem 1rem;
+    display: flex; align-items: center; gap: 0.6rem;
+  }
+  .fb-1 { top: -20px; right: -20px; animation: floatBadge 4s ease-in-out infinite; }
+  .fb-2 { bottom: -20px; left: -20px; animation: floatBadge 5s ease-in-out infinite reverse; }
+  @keyframes floatBadge {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  .fb-icon { font-size: 1.4rem; }
+  .fb-text { font-size: 0.78rem; color: rgba(255,255,255,0.9); line-height: 1.3; }
+  .fb-text strong { color: var(--gold); display: block; font-size: 0.9rem; }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── TICKER ─── */
+  .ticker-wrap {
+    background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold));
+    padding: 0.7rem 0; overflow: hidden; position: relative;
+  }
+  .ticker-track {
+    display: flex; gap: 3rem;
+    animation: ticker 30s linear infinite;
+    width: max-content;
+  }
+  .ticker-item {
+    display: flex; align-items: center; gap: 0.6rem;
+    font-size: 0.82rem; font-weight: 700; color: var(--navy);
+    white-space: nowrap; letter-spacing: 0.05em; text-transform: uppercase;
+  }
+  .ticker-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--navy); opacity: 0.5; }
+  @keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ─── SECTIONS COMMON ─── */
+  section { padding: 7rem 5%; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-eyebrow {
+    font-size: 0.75rem; font-weight: 700; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--gold); margin-bottom: 0.8rem;
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .section-eyebrow::before {
+    content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+  }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(1.9rem, 3.5vw, 3rem);
+    font-weight: 700; line-height: 1.2; color: var(--white);
+    margin-bottom: 1.2rem;
+  }
+  .section-title .accent { color: var(--gold); }
+  .section-title .italic-accent {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: var(--cyan);
+  }
+  .section-body {
+    font-size: 1.05rem; color: rgba(255,255,255,0.65); max-width: 600px;
+    margin-bottom: 3.5rem;
+  }
+  .text-center { text-align: center; }
+  .text-center .section-eyebrow { justify-content: center; }
+  .text-center .section-eyebrow::before { display: none; }
+  .text-center .section-body { margin-left: auto; margin-right: auto; }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--navy); }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+  }
+  .about-visual {
+    position: relative;
+  }
+  .about-img-box {
+    aspect-ratio: 1; border-radius: 20px;
+    background: linear-gradient(135deg, var(--royal), var(--navy-mid));
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 1rem; font-size: 4rem; position: relative; overflow: hidden;
+    border: 1px solid var(--glass-border);
+  }
+  .about-img-box::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(201,162,39,0.08));
+  }
+  .about-img-label {
+    font-family: 'Cinzel', serif; font-size: 0.85rem; letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.5); text-align: center; padding: 0 2rem;
+    position: relative; z-index: 1;
+  }
+  .about-badge-float {
+    position: absolute; right: -30px; bottom: 40px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    border-radius: 12px; padding: 1rem 1.2rem;
+    text-align: center;
+  }
+  .abf-num {
+    font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700; color: var(--navy);
+    line-height: 1;
+  }
+  .abf-label { font-size: 0.72rem; font-weight: 700; color: var(--navy); opacity: 0.75; }
+  .about-features { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
+  .af-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.2rem; border-radius: 12px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    transition: all 0.3s;
+  }
+  .af-item:hover { background: rgba(255,255,255,0.07); border-color: rgba(201,162,39,0.2); }
+  .af-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
+  .af-title { font-weight: 600; font-size: 0.95rem; color: var(--white); margin-bottom: 0.2rem; }
+  .af-desc { font-size: 0.85rem; color: rgba(255,255,255,0.55); }
+
+  /* ─── PROGRAMS ─── */
+  #programs { background: var(--navy-mid); }
+  .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .program-card {
+    border-radius: 20px; padding: 2.5rem 2rem;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.04);
+    position: relative; overflow: hidden;
+    transition: all 0.4s;
+    display: flex; flex-direction: column;
+  }
+  .program-card:hover { transform: translateY(-6px); border-color: rgba(201,162,39,0.3); }
+  .program-card.featured {
+    background: linear-gradient(135deg, var(--royal), #0d2d5e);
+    border-color: rgba(201,162,39,0.4);
+  }
+  .program-card.featured::before {
+    content: 'POPULAR'; position: absolute; top: 1.5rem; right: 1.5rem;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); font-size: 0.65rem; font-weight: 800;
+    letter-spacing: 0.15em; padding: 0.3rem 0.7rem; border-radius: 50px;
+  }
+  .pc-glow {
+    position: absolute; top: -50px; right: -50px; width: 200px; height: 200px;
+    border-radius: 50%; filter: blur(60px); pointer-events: none;
+  }
+  .pc-glow-blue { background: rgba(37,99,235,0.2); }
+  .pc-glow-gold { background: rgba(201,162,39,0.2); }
+  .pc-glow-cyan { background: rgba(6,182,212,0.15); }
+  .pc-icon { font-size: 2.5rem; margin-bottom: 1.2rem; }
+  .pc-tag {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 0.6rem;
+  }
+  .pc-title { font-family: 'Cinzel', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.8rem; }
+  .pc-desc { font-size: 0.9rem; color: rgba(255,255,255,0.6); margin-bottom: 1.5rem; flex: 1; }
+  .pc-price {
+    margin-bottom: 1.5rem; padding: 1.2rem 0;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .pc-amount {
+    font-family: 'Cinzel', serif; font-size: 2rem; font-weight: 700; color: var(--gold);
+    line-height: 1;
+  }
+  .pc-period { font-size: 0.82rem; color: var(--gray); }
+  .pc-features { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; }
+  .pc-features li {
+    font-size: 0.87rem; color: rgba(255,255,255,0.75);
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .pc-features li::before { content: '✦'; color: var(--gold); font-size: 0.6rem; }
+  .pc-btn {
+    display: block; text-align: center; padding: 0.9rem;
+    border-radius: 8px; font-weight: 700; font-size: 0.9rem;
+    text-decoration: none; transition: all 0.3s; cursor: pointer;
+    letter-spacing: 0.04em;
+  }
+  .pc-btn-primary {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy);
+    box-shadow: 0 6px 20px rgba(201,162,39,0.25);
+  }
+  .pc-btn-primary:hover { box-shadow: 0 10px 28px rgba(201,162,39,0.4); transform: translateY(-2px); }
+  .pc-btn-outline {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .pc-btn-outline:hover { background: rgba(255,255,255,0.07); }
+
+  /* ─── TEACHERS ─── */
+  #teachers { background: var(--navy); }
+  .teachers-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .teacher-card {
+    border-radius: 20px; overflow: hidden;
+    border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.4s;
+    position: relative;
+  }
+  .teacher-card:hover { transform: translateY(-6px); border-color: rgba(201,162,39,0.3); }
+  .teacher-photo {
+    height: 220px;
+    background: linear-gradient(135deg, var(--royal), var(--navy-mid));
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-size: 3.5rem; position: relative; overflow: hidden;
+  }
+  .teacher-photo::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 80px;
+    background: linear-gradient(transparent, rgba(10,22,40,0.8));
+  }
+  .teacher-subject-badge {
+    position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); font-size: 0.65rem; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 0.25rem 0.8rem; border-radius: 50px; white-space: nowrap;
+    z-index: 1;
+  }
+  .teacher-info { padding: 1.4rem; }
+  .teacher-name { font-family: 'Cinzel', serif; font-weight: 700; font-size: 1rem; margin-bottom: 0.3rem; }
+  .teacher-role { font-size: 0.82rem; color: var(--gold); font-weight: 600; letter-spacing: 0.05em; margin-bottom: 0.6rem; }
+  .teacher-bio { font-size: 0.82rem; color: rgba(255,255,255,0.55); line-height: 1.6; }
+
+  /* ─── WHY US ─── */
+  #why { background: var(--navy-mid); }
+  .why-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+  .why-card {
+    padding: 2rem 1.5rem; border-radius: 16px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--glass-border);
+    text-align: center; transition: all 0.3s;
+  }
+  .why-card:hover {
+    background: rgba(255,255,255,0.08);
+    border-color: rgba(201,162,39,0.25);
+    transform: translateY(-4px);
+  }
+  .why-icon { font-size: 2.2rem; margin-bottom: 1rem; display: block; }
+  .why-title { font-family: 'Cinzel', serif; font-size: 0.95rem; font-weight: 700; margin-bottom: 0.6rem; }
+  .why-desc { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.65; }
+
+  /* ─── ACTIVITIES ─── */
+  #activities { background: var(--navy); }
+  .activities-intro {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center;
+    margin-bottom: 4rem;
+  }
+  .activities-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+  .act-card {
+    border-radius: 16px; overflow: hidden; position: relative;
+    aspect-ratio: 4/3; cursor: pointer;
+    background: linear-gradient(135deg, var(--royal), var(--navy-mid));
+    border: 1px solid var(--glass-border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.8rem; transition: all 0.4s;
+  }
+  .act-card:hover { transform: scale(1.03); border-color: rgba(201,162,39,0.4); }
+  .act-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(37,99,235,0.15), rgba(201,162,39,0.08));
+  }
+  .act-icon { font-size: 2.8rem; position: relative; z-index: 1; }
+  .act-title {
+    font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700;
+    color: var(--white); position: relative; z-index: 1; letter-spacing: 0.08em;
+  }
+  .act-tag {
+    font-size: 0.7rem; font-weight: 600; color: var(--gold); letter-spacing: 0.12em;
+    text-transform: uppercase; position: relative; z-index: 1;
+  }
+  .act-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(10,22,40,0.85), transparent);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 1.2rem; opacity: 0; transition: opacity 0.3s;
+    z-index: 2;
+  }
+  .act-card:hover .act-overlay { opacity: 1; }
+  .act-overlay p { font-size: 0.82rem; color: rgba(255,255,255,0.85); }
+
+  /* ─── TESTIMONIALS ─── */
+  #testimonials { background: var(--navy-mid); }
+  .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .testi-card {
+    border-radius: 20px; padding: 2rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s; position: relative;
+  }
+  .testi-card:hover { border-color: rgba(201,162,39,0.25); transform: translateY(-4px); }
+  .testi-quote {
+    font-size: 2.5rem; font-family: 'Cormorant Garamond', serif;
+    color: var(--gold); line-height: 1; margin-bottom: 1rem;
+  }
+  .testi-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
+  .testi-text {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+    font-style: italic; color: rgba(255,255,255,0.8); line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+  .testi-author { display: flex; align-items: center; gap: 0.8rem; }
+  .testi-avatar {
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--royal), var(--blue));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem; flex-shrink: 0;
+    border: 2px solid rgba(201,162,39,0.3);
+  }
+  .testi-name { font-weight: 700; font-size: 0.9rem; }
+  .testi-role { font-size: 0.78rem; color: var(--gold); }
+
+  /* ─── ACHIEVEMENT WALL ─── */
+  #achievements { background: var(--navy); }
+  .achieve-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
+  .achieve-card {
+    border-radius: 16px; padding: 2rem 1.5rem;
+    text-align: center; border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.04);
+    transition: all 0.3s;
+  }
+  .achieve-card:hover { background: rgba(255,255,255,0.08); border-color: rgba(201,162,39,0.25); }
+  .achieve-icon { font-size: 2rem; margin-bottom: 0.8rem; display: block; }
+  .achieve-num {
+    font-family: 'Cinzel', serif; font-size: 2.5rem; font-weight: 700; color: var(--gold);
+    line-height: 1; margin-bottom: 0.3rem;
+  }
+  .achieve-label { font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+
+  /* ─── FAQ ─── */
+  #faq { background: var(--navy-mid); }
+  .faq-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+  .faq-item {
+    border-radius: 14px; border: 1px solid var(--glass-border);
+    background: rgba(255,255,255,0.03); overflow: hidden;
+  }
+  .faq-question {
+    padding: 1.2rem 1.5rem; font-weight: 600; font-size: 0.92rem;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+    color: var(--white); transition: background 0.3s; gap: 1rem;
+  }
+  .faq-question:hover { background: rgba(255,255,255,0.05); }
+  .faq-icon {
+    color: var(--gold); font-size: 1.2rem; flex-shrink: 0;
+    transition: transform 0.3s; font-style: normal;
+  }
+  .faq-answer {
+    max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s;
+    font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.7;
+    padding: 0 1.5rem;
+  }
+  .faq-item.open .faq-answer { max-height: 200px; padding: 0 1.5rem 1.2rem; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--navy); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: start; }
+  .contact-info { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-item {
+    display: flex; gap: 1rem; align-items: flex-start;
+    padding: 1.2rem; border-radius: 12px;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+  }
+  .ci-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+  .ci-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; margin-bottom: 0.2rem; }
+  .ci-value { font-size: 0.92rem; color: rgba(255,255,255,0.8); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  label { font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.6); letter-spacing: 0.06em; text-transform: uppercase; }
+  input, textarea, select {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 0.85rem 1rem;
+    color: var(--white); font-family: 'DM Sans', sans-serif;
+    font-size: 0.92rem; transition: all 0.3s; outline: none; width: 100%;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: var(--gold); background: rgba(255,255,255,0.09);
+    box-shadow: 0 0 0 3px rgba(201,162,39,0.1);
+  }
+  input::placeholder, textarea::placeholder { color: rgba(255,255,255,0.3); }
+  textarea { resize: vertical; min-height: 120px; }
+  select option { background: var(--navy); }
+  .map-placeholder {
+    border-radius: 12px; overflow: hidden; height: 200px;
+    background: linear-gradient(135deg, var(--royal), var(--navy-mid));
+    border: 1px solid var(--glass-border);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 0.5rem; margin-top: 1rem;
+  }
+  .map-placeholder span:first-child { font-size: 2rem; }
+  .map-placeholder span:last-child { font-size: 0.85rem; color: rgba(255,255,255,0.55); text-align: center; }
+
+  /* ─── BLOG ─── */
+  #blog { background: var(--navy-mid); }
+  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .blog-card {
+    border-radius: 16px; overflow: hidden;
+    background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border);
+    transition: all 0.3s;
+  }
+  .blog-card:hover { transform: translateY(-4px); border-color: rgba(201,162,39,0.25); }
+  .blog-thumb {
+    height: 160px;
+    background: linear-gradient(135deg, var(--royal), var(--navy-mid));
+    display: flex; align-items: center; justify-content: center; font-size: 2.5rem;
+    position: relative; overflow: hidden;
+  }
+  .blog-thumb::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+    background: linear-gradient(transparent, rgba(10,22,40,0.6));
+  }
+  .blog-body { padding: 1.4rem; }
+  .blog-cat {
+    font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; color: var(--gold);
+    text-transform: uppercase; margin-bottom: 0.6rem;
+  }
+  .blog-title { font-family: 'Cinzel', serif; font-size: 1rem; font-weight: 700; margin-bottom: 0.6rem; line-height: 1.4; }
+  .blog-excerpt { font-size: 0.83rem; color: rgba(255,255,255,0.55); line-height: 1.65; margin-bottom: 1rem; }
+  .blog-meta { font-size: 0.75rem; color: var(--gray); display: flex; gap: 1rem; }
+
+  /* ─── SCHOLARSHIP ─── */
+  #scholarship {
+    background: linear-gradient(135deg, var(--royal), #0d2d5e);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .scholarship-inner {
+    max-width: 700px; margin: 0 auto; text-align: center;
+  }
+  .scholarship-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: rgba(201,162,39,0.15); border: 1px solid rgba(201,162,39,0.4);
+    padding: 0.4rem 1rem; border-radius: 50px; margin-bottom: 1.5rem;
+    font-size: 0.78rem; font-weight: 700; color: var(--gold); letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .scholarship-title {
+    font-family: 'Cinzel', serif; font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 700; margin-bottom: 1rem;
+  }
+  .scholarship-desc { color: rgba(255,255,255,0.7); margin-bottom: 2rem; font-size: 1rem; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #040c18; padding: 4rem 5% 2rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .footer-grid {
+    display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+    max-width: 1200px; margin: 0 auto; margin-bottom: 3rem;
+  }
+  .footer-brand .logo-text span:first-child { font-size: 1.3rem; }
+  .footer-tagline { font-size: 0.88rem; color: rgba(255,255,255,0.5); margin-top: 0.8rem; max-width: 280px; line-height: 1.7; }
+  .footer-socials { display: flex; gap: 0.8rem; margin-top: 1.5rem; }
+  .social-btn {
+    width: 38px; height: 38px; border-radius: 8px;
+    background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; cursor: pointer; transition: all 0.3s; text-decoration: none;
+  }
+  .social-btn:hover { background: rgba(201,162,39,0.15); border-color: rgba(201,162,39,0.3); }
+  .footer-col h4 {
+    font-family: 'Cinzel', serif; font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.12em; color: var(--gold); margin-bottom: 1.2rem;
+    text-transform: uppercase;
+  }
+  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .footer-links a { text-decoration: none; color: rgba(255,255,255,0.5); font-size: 0.87rem; transition: color 0.3s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1200px; margin: 0 auto;
+    padding-top: 2rem; border-top: 1px solid rgba(255,255,255,0.06);
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  .footer-disclaimer { font-size: 0.78rem; color: rgba(255,255,255,0.35); max-width: 500px; line-height: 1.6; }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+  /* ─── FLOATING ELEMENTS ─── */
+  .whatsapp-float {
+    position: fixed; bottom: 2rem; right: 2rem; z-index: 999;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1.6rem;
+    box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+    transition: all 0.3s; animation: waBounce 3s ease-in-out infinite;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 10px 30px rgba(37,211,102,0.5); }
+  @keyframes waBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+  .whatsapp-float:hover { animation: none; transform: scale(1.1); }
+
+  .sticky-cta {
+    position: fixed; bottom: 6.5rem; right: 2rem; z-index: 998;
+    display: flex; flex-direction: column; gap: 0.6rem; align-items: flex-end;
+    opacity: 0; transform: translateY(20px); transition: all 0.4s;
+    pointer-events: none;
+  }
+  .sticky-cta.visible { opacity: 1; transform: translateY(0); pointer-events: all; }
+  .sticky-btn {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    color: var(--navy); font-size: 0.8rem; font-weight: 700;
+    padding: 0.55rem 1.1rem; border-radius: 50px;
+    text-decoration: none; letter-spacing: 0.04em;
+    box-shadow: 0 4px 16px rgba(201,162,39,0.3);
+    transition: all 0.3s;
+  }
+  .sticky-btn:hover { transform: translateX(-4px); box-shadow: 0 6px 20px rgba(201,162,39,0.45); }
+
+  /* ─── ROADMAP ─── */
+  #roadmap { background: var(--navy); }
+  .roadmap-steps { display: flex; flex-direction: column; gap: 0; max-width: 700px; margin: 0 auto; }
+  .roadmap-step {
+    display: flex; gap: 2rem; position: relative;
+  }
+  .roadmap-step::before {
+    content: ''; position: absolute; left: 28px; top: 56px;
+    width: 2px; height: calc(100% - 40px);
+    background: linear-gradient(var(--gold), rgba(201,162,39,0.1));
+  }
+  .roadmap-step:last-child::before { display: none; }
+  .step-marker {
+    display: flex; flex-direction: column; align-items: center; gap: 0; flex-shrink: 0;
+  }
+  .step-circle {
+    width: 58px; height: 58px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; color: var(--navy);
+  }
+  .step-body { padding-bottom: 2.5rem; }
+  .step-title { font-family: 'Cinzel', serif; font-size: 1.1rem; font-weight: 700; margin-bottom: 0.4rem; margin-top: 1rem; }
+  .step-desc { font-size: 0.88rem; color: rgba(255,255,255,0.6); line-height: 1.65; }
+
+  /* ─── DARK MODE TOGGLE ─── */
+  .dark-toggle {
+    cursor: pointer; width: 40px; height: 40px;
+    border-radius: 50%; background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1rem; transition: all 0.3s; flex-shrink: 0;
+  }
+  .dark-toggle:hover { background: rgba(201,162,39,0.15); border-color: rgba(201,162,39,0.3); }
+
+  /* Light mode */
+  body.light-mode {
+    background: var(--off-white); color: var(--text-dark);
+  }
+  body.light-mode nav.scrolled { background: rgba(248,249,252,0.95); border-bottom-color: rgba(0,0,0,0.08); }
+  body.light-mode .nav-links a { color: rgba(10,22,40,0.75); }
+  body.light-mode .nav-links a:hover { color: var(--gold); }
+  body.light-mode .hamburger span { background: var(--navy); }
+  body.light-mode #hero { background: linear-gradient(135deg, #0a1628 0%, #1a3a6e 100%); }
+  body.light-mode #about,
+  body.light-mode #teachers,
+  body.light-mode #activities,
+  body.light-mode #achievements,
+  body.light-mode #contact,
+  body.light-mode #roadmap,
+  body.light-mode #blog { background: var(--off-white); }
+  body.light-mode #programs,
+  body.light-mode #why,
+  body.light-mode #testimonials,
+  body.light-mode #faq { background: var(--gray-light); }
+  body.light-mode .section-title { color: var(--text-dark); }
+  body.light-mode .section-body { color: var(--text-light); }
+  body.light-mode .program-card,
+  body.light-mode .teacher-card,
+  body.light-mode .why-card,
+  body.light-mode .testi-card,
+  body.light-mode .achieve-card,
+  body.light-mode .faq-item,
+  body.light-mode .blog-card,
+  body.light-mode .contact-item,
+  body.light-mode .af-item {
+    background: var(--white); border-color: rgba(0,0,0,0.08);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  body.light-mode .section-title .accent,
+  body.light-mode .pc-amount,
+  body.light-mode .achieve-num,
+  body.light-mode .stat-number { color: var(--blue); }
+  body.light-mode .teacher-name,
+  body.light-mode .pc-title,
+  body.light-mode .why-title,
+  body.light-mode .blog-title,
+  body.light-mode .step-title,
+  body.light-mode .footer-col h4 { color: var(--text-dark); }
+  body.light-mode .pc-desc,
+  body.light-mode .why-desc,
+  body.light-mode .af-desc,
+  body.light-mode .blog-excerpt,
+  body.light-mode .step-desc,
+  body.light-mode .ci-value { color: var(--text-light); }
+  body.light-mode footer { background: var(--navy); }
+  body.light-mode input,
+  body.light-mode textarea,
+  body.light-mode select {
+    background: var(--gray-light); border-color: rgba(0,0,0,0.12); color: var(--text-dark);
+  }
+  body.light-mode label { color: var(--text-mid); }
+  body.light-mode .testi-text { color: var(--text-mid); }
+  body.light-mode .faq-question { color: var(--text-dark); }
+  body.light-mode .faq-answer { color: var(--text-light); }
+  body.light-mode #scholarship { background: linear-gradient(135deg, var(--royal), #1a4a8e); }
+  body.light-mode .program-card.featured { background: linear-gradient(135deg, var(--royal), #1a4a8e); }
+  body.light-mode .program-card.featured .pc-title,
+  body.light-mode .program-card.featured .pc-desc,
+  body.light-mode .program-card.featured .pc-features li { color: var(--white); }
+
+  /* ─── ANIMATIONS REVEAL ─── */
+  .reveal {
+    opacity: 0; transform: translateY(30px); transition: all 0.7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 1024px) {
+    .hero-content { grid-template-columns: 1fr; }
+    .hero-visual { display: none; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-visual { max-width: 400px; }
+    .teachers-grid { grid-template-columns: repeat(2, 1fr); }
+    .programs-grid { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
+    .why-grid { grid-template-columns: repeat(2, 1fr); }
+    .achieve-grid { grid-template-columns: repeat(2, 1fr); }
+    .activities-intro { grid-template-columns: 1fr; gap: 2rem; }
+    .testimonials-grid { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: repeat(2, 1fr); }
+    .faq-grid { grid-template-columns: 1fr; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .teachers-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .hero-stats { flex-wrap: wrap; gap: 1.5rem; }
+    .activities-gallery { grid-template-columns: 1fr; }
+    .blog-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; align-items: flex-start; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 4rem 5%; }
+    .dark-toggle { display: none; }
+  }
+  @media (max-width: 480px) {
+    .why-grid { grid-template-columns: 1fr; }
+    .achieve-grid { grid-template-columns: 1fr 1fr; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions a, .hero-actions button { width: 100%; text-align: center; justify-content: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SCROLL PROGRESS -->
+<div id="progress-bar"></div>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <button class="mobile-close" onclick="closeMobileMenu()">✕</button>
+  <a href="#about" onclick="closeMobileMenu()">About</a>
+  <a href="#programs" onclick="closeMobileMenu()">Programs</a>
+  <a href="#teachers" onclick="closeMobileMenu()">Teachers</a>
+  <a href="#activities" onclick="closeMobileMenu()">Activities</a>
+  <a href="#contact" onclick="closeMobileMenu()">Contact</a>
+</div>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">
+    <div class="logo-mark">CA</div>
+    <div class="logo-text">
+      <span>Citadel Academy</span>
+      <span>Excellence · Mentorship · Transformation</span>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#programs">Programs</a></li>
+    <li><a href="#teachers">Teachers</a></li>
+    <li><a href="#activities">Activities</a></li>
+    <li><a href="#testimonials">Stories</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#contact" class="nav-cta">Enroll Now</a></li>
+  </ul>
+  <button class="dark-toggle" onclick="toggleMode()" title="Toggle theme">🌙</button>
+  <div class="hamburger" onclick="openMobileMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════ HERO ═══════════════════════════════════ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-badge">🎓 Kenya's Premier Academic Mentorship Academy</div>
+      <h1 class="hero-headline">
+        Empowering <span class="gold">Future Scholars</span><br/>
+        <span class="italic">Beyond the Classroom</span>
+      </h1>
+      <p class="hero-sub">
+        Citadel Academy combines world-class holiday tuition, transformative mentorship, and international online learning — forging the scholars and leaders of tomorrow from Bondo, Kenya to the world.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">✦ Enroll Now</a>
+        <a href="#programs" class="btn-secondary">📚 View Programs</a>
+        <a href="#contact" class="btn-outline-gold">💻 Book Online Class</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-number" data-target="300">0+</div>
+          <div class="stat-label">Students Mentored</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="6">0</div>
+          <div class="stat-label">Expert Tutors</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="10">0</div>
+          <div class="stat-label">Subjects Offered</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number" data-target="95">0%</div>
+          <div class="stat-label">Student Satisfaction</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card-main">
+        <div class="floating-badge fb-1">
+          <span class="fb-icon">🌍</span>
+          <div class="fb-text"><strong>International</strong>Online via Zoom & Meet</div>
+        </div>
+        <div class="hero-img-placeholder">
+          <span class="hero-img-icon">🎓</span>
+          <span class="hero-img-label">Students of Citadel Academy<br/>Bondo Township, Kenya</span>
+        </div>
+        <div class="floating-badge fb-2">
+          <span class="fb-icon">⭐</span>
+          <div class="fb-text"><strong>Top Rated</strong>Holiday Tuition Centre</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ TICKER ═══════════════════════════════════ -->
+<div class="ticker-wrap">
+  <div class="ticker-track">
+    <span class="ticker-item"><span class="ticker-dot"></span> Mathematics Excellence</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> KCSE Holiday Tuition</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> International Online Tutoring</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Mentorship & Motivation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Sports & Recreation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Physics & Computer Studies</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> English & Literature</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Bondo Township Kenya</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Mathematics Excellence</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> KCSE Holiday Tuition</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> International Online Tutoring</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Mentorship & Motivation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Sports & Recreation</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Physics & Computer Studies</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> English & Literature</span>
+    <span class="ticker-item"><span class="ticker-dot"></span> Bondo Township Kenya</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ ABOUT ═══════════════════════════════════ -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-box">
+          <span style="font-size:3.5rem; position:relative; z-index:1;">🏛️</span>
+          <span class="about-img-label">Founded in the heart of Bondo Township, Kenya — built for global excellence</span>
+        </div>
+        <div class="about-badge-float">
+          <div class="abf-num">2024</div>
+          <div class="abf-label">Year Founded</div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="section-eyebrow">Our Story</div>
+        <h2 class="section-title">Where Academic <span class="accent">Excellence</span> Meets <span class="italic-accent">Human Purpose</span></h2>
+        <p class="section-body">
+          Citadel Academy was born from a shared conviction among Kenya's finest educators — that every student deserves more than a textbook. We combine rigorous academic tutoring with transformative mentorship and enriching recreation to develop whole, confident, and purpose-driven scholars.
+        </p>
+        <div class="about-features">
+          <div class="af-item">
+            <span class="af-icon">📍</span>
+            <div>
+              <div class="af-title">Rooted in Bondo, Reaching the World</div>
+              <div class="af-desc">Operating physically in Bondo Township while delivering world-class online tutoring to international students via Zoom and Google Meet.</div>
+            </div>
+          </div>
+          <div class="af-item">
+            <span class="af-icon">🤝</span>
+            <div>
+              <div class="af-title">Mentorship at Our Core</div>
+              <div class="af-desc">We go beyond grades. Our expert mentors guide students in discipline, confidence, goal-setting, and life skills.</div>
+            </div>
+          </div>
+          <div class="af-item">
+            <span class="af-icon">🏆</span>
+            <div>
+              <div class="af-title">Holistic Student Development</div>
+              <div class="af-desc">Academics, sports, photography, and recreation — we believe rested, inspired students learn better and achieve more.</div>
+            </div>
+          </div>
+          <div class="af-item">
+            <span class="af-icon">🎓</span>
+            <div>
+              <div class="af-title">Masters-Level Teaching Faculty</div>
+              <div class="af-desc">Our team holds advanced degrees from leading Kenyan universities and brings deep subject mastery to every class.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ PROGRAMS ═══════════════════════════════════ -->
+<section id="programs">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Our Offerings</div>
+      <h2 class="section-title">Programs <span class="accent">Designed</span> for <span class="italic-accent">Your Journey</span></h2>
+      <p class="section-body">Choose the learning path that fits your goals — whether you're a local Kenyan student preparing for KCSE or an international learner seeking world-class online support.</p>
+    </div>
+    <div class="programs-grid reveal">
+      <!-- Card 1 -->
+      <div class="program-card">
+        <div class="pc-glow pc-glow-blue"></div>
+        <div class="pc-icon">📚</div>
+        <div class="pc-tag">Local Programme</div>
+        <h3 class="pc-title">Holiday Tuition Program</h3>
+        <p class="pc-desc">Intensive academic coaching during school holidays for Kenyan high school students. All major subjects covered by specialist tutors.</p>
+        <div class="pc-price">
+          <div class="pc-amount">KES 1,500</div>
+          <div class="pc-period">per week · per student</div>
+        </div>
+        <ul class="pc-features">
+          <li>Mathematics &amp; Physics</li>
+          <li>Geography &amp; History</li>
+          <li>English, Literature &amp; Kiswahili</li>
+          <li>CRE, Computer Studies &amp; French</li>
+          <li>Study skills &amp; exam strategies</li>
+          <li>Daily motivational sessions</li>
+        </ul>
+        <a href="#contact" class="pc-btn pc-btn-outline">Enroll Today →</a>
+      </div>
+      <!-- Card 2 FEATURED -->
+      <div class="program-card featured">
+        <div class="pc-glow pc-glow-gold"></div>
+        <div class="pc-icon">💻</div>
+        <div class="pc-tag">International</div>
+        <h3 class="pc-title">Online Tutoring</h3>
+        <p class="pc-desc">Premium one-on-one and group online tutoring for international and diaspora students. Live sessions via Zoom & Google Meet.</p>
+        <div class="pc-price">
+          <div class="pc-amount">USD 20</div>
+          <div class="pc-period">per hour · flexible scheduling</div>
+        </div>
+        <ul class="pc-features">
+          <li>All high school subjects</li>
+          <li>Live Zoom &amp; Google Meet sessions</li>
+          <li>Personalized curriculum</li>
+          <li>Session recordings available</li>
+          <li>Progress reports for parents</li>
+          <li>Flexible time zones</li>
+        </ul>
+        <a href="#contact" class="pc-btn pc-btn-primary">Book a Session →</a>
+      </div>
+      <!-- Card 3 -->
+      <div class="program-card">
+        <div class="pc-glow pc-glow-cyan"></div>
+        <div class="pc-icon">🧭</div>
+        <div class="pc-tag">Personal Growth</div>
+        <h3 class="pc-title">Mentorship Program</h3>
+        <p class="pc-desc">Professional mentoring sessions that transform students' mindsets, study habits, and life goals for lasting academic excellence.</p>
+        <div class="pc-price">
+          <div class="pc-amount">KES 5,000</div>
+          <div class="pc-period">per client · transport &amp; meals excl.</div>
+        </div>
+        <ul class="pc-features">
+          <li>Goal setting &amp; career guidance</li>
+          <li>Study techniques &amp; discipline</li>
+          <li>Confidence &amp; mindset building</li>
+          <li>Academic performance coaching</li>
+          <li>One-on-one mentor sessions</li>
+          <li>Follow-up support</li>
+        </ul>
+        <a href="#contact" class="pc-btn pc-btn-outline">Book Mentorship →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ TEACHERS ═══════════════════════════════════ -->
+<section id="teachers">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">The Faculty</div>
+      <h2 class="section-title">Meet Your <span class="accent">Specialist</span> <span class="italic-accent">Tutors</span></h2>
+      <p class="section-body">Our team of postgraduate educators and subject specialists brings academic mastery and genuine passion to every student they touch.</p>
+    </div>
+    <div class="teachers-grid reveal">
+      <div class="teacher-card">
+        <div class="teacher-photo">
+          🎓
+          <div class="teacher-subject-badge">Geography & History</div>
+        </div>
+        <div class="teacher-info">
+          <div class="teacher-name">Kennedy Otiende Oloo</div>
+          <div class="teacher-role">Founder & Geography Specialist</div>
+          <div class="teacher-bio">JSS teacher specializing in History &amp; Geography. Pursuing a Master's at Mount Kenya University, researching River Nzoia flooding dynamics.</div>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-photo" style="background: linear-gradient(135deg, #1e3a5f, #0f2040);">
+          🔢
+          <div class="teacher-subject-badge">Mathematics</div>
+        </div>
+        <div class="teacher-info">
+          <div class="teacher-name">Vincent Tinyo</div>
+          <div class="teacher-role">Mathematics Specialist</div>
+          <div class="teacher-bio">Highly proficient KCSE mathematics tutor with a proven record of transforming students' numerical reasoning and exam performance.</div>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-photo" style="background: linear-gradient(135deg, #1a3560, #0d2040);">
+          ⚡
+          <div class="teacher-subject-badge">Physics</div>
+        </div>
+        <div class="teacher-info">
+          <div class="teacher-name">Felix Akello</div>
+          <div class="teacher-role">Physics Specialist</div>
+          <div class="teacher-bio">Holds a Master's Degree in Physics from Jaramogi Oginga Odinga University of Science and Technology. Expert in applied physics education.</div>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-photo" style="background: linear-gradient(135deg, #2d1b5e, #1a1040);">
+          ✍️
+          <div class="teacher-subject-badge">English & Literature</div>
+        </div>
+        <div class="teacher-info">
+          <div class="teacher-name">Catherine Mutie</div>
+          <div class="teacher-role">English & Literature Specialist</div>
+          <div class="teacher-bio">Expert in English language and Literature in English. Provides strong grammar mentorship and develops students' communication excellence.</div>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-photo" style="background: linear-gradient(135deg, #1a3845, #0f2030);">
+          📖
+          <div class="teacher-subject-badge">Kiswahili & CRE</div>
+        </div>
+        <div class="teacher-info">
+          <div class="teacher-name">Matthews Agak</div>
+          <div class="teacher-role">Kiswahili & CRE Specialist</div>
+          <div class="teacher-bio">Specialist in Kiswahili and Christian Religious Education, bringing cultural depth and academic precision to language and values education.</div>
+        </div>
+      </div>
+      <div class="teacher-card">
+        <div class="teacher-photo" style="background: linear-gradient(135deg, #1e3a20, #0f2015);">
+          💻
+          <div class="teacher-subject-badge">Computer & French</div>
+        </div>
+        <div class="teacher-info">
+          <div class="teacher-name">Chrisantus Oloo</div>
+          <div class="teacher-role">Computer Studies & French Specialist</div>
+          <div class="teacher-bio">Tech-driven educator and French language expert. Bridges digital literacy with international language skills for the modern learner.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ WHY US ═══════════════════════════════════ -->
+<section id="why">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Our Advantage</div>
+      <h2 class="section-title">Why <span class="accent">Citadel</span> Stands <span class="italic-accent">Apart</span></h2>
+      <p class="section-body">We've built a system where rigorous academics, human mentorship, and joyful recreation converge to create unstoppable students.</p>
+    </div>
+    <div class="why-grid reveal">
+      <div class="why-card">
+        <span class="why-icon">🎓</span>
+        <div class="why-title">Masters-Level Faculty</div>
+        <div class="why-desc">Every tutor holds advanced academic credentials and deep subject mastery, ensuring the highest standard of instruction.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🎯</span>
+        <div class="why-title">Personalized Attention</div>
+        <div class="why-desc">Small class sizes and individual mentorship sessions mean every student gets the focus and guidance they need.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🌍</span>
+        <div class="why-title">Global Online Access</div>
+        <div class="why-desc">Live online sessions via Zoom and Google Meet bring Citadel's excellence to students anywhere in the world.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">💰</span>
+        <div class="why-title">Affordable Excellence</div>
+        <div class="why-desc">World-class quality at accessible pricing — KES 1,500/week for local tuition, USD 20/hr for international sessions.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🏊</span>
+        <div class="why-title">Recreational Balance</div>
+        <div class="why-desc">Swimming, football, and photography after class to refresh minds and build teamwork — no more brain fatigue.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🤝</span>
+        <div class="why-title">Deep Mentorship</div>
+        <div class="why-desc">We coach character as much as curriculum — equipping students with discipline, resilience, and a vision for their future.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📱</span>
+        <div class="why-title">Modern Methods</div>
+        <div class="why-desc">Technology-driven, engaging teaching techniques that make complex concepts accessible and genuinely interesting.</div>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🏆</span>
+        <div class="why-title">KCSE Excellence</div>
+        <div class="why-desc">Specialized KCSE preparation strategies that consistently drive measurable improvements in student grades and confidence.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ ACTIVITIES ═══════════════════════════════════ -->
+<section id="activities">
+  <div class="container">
+    <div class="activities-intro">
+      <div class="reveal">
+        <div class="section-eyebrow">Beyond the Books</div>
+        <h2 class="section-title">Academics &amp; <span class="accent">Recreation</span> — <span class="italic-accent">The Citadel Way</span></h2>
+        <p class="section-body">We believe a rested, inspired student is a high-performing student. After rigorous academic sessions, our students engage in enriching activities that restore energy, build character, and deepen friendships.</p>
+        <a href="#contact" class="btn-primary" style="margin-top:1rem; display:inline-flex;">Join Our Community ✦</a>
+      </div>
+      <div class="reveal" style="display:flex; flex-direction:column; gap:1rem;">
+        <div class="af-item">
+          <span class="af-icon">🧠</span>
+          <div>
+            <div class="af-title">Cognitive Restoration</div>
+            <div class="af-desc">Physical activity after study sessions is proven to boost memory retention and mental clarity.</div>
+          </div>
+        </div>
+        <div class="af-item">
+          <span class="af-icon">👥</span>
+          <div>
+            <div class="af-title">Teacher-Student Bond</div>
+            <div class="af-desc">Recreation time deepens the trust and rapport between teachers and students, enriching learning outcomes.</div>
+          </div>
+        </div>
+        <div class="af-item">
+          <span class="af-icon">🌟</span>
+          <div>
+            <div class="af-title">Character Formation</div>
+            <div class="af-desc">Teamwork, discipline, and creativity cultivated through sport and art shape outstanding individuals.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="activities-gallery reveal">
+      <div class="act-card">
+        <span class="act-icon">🏊</span>
+        <span class="act-title">Swimming</span>
+        <span class="act-tag">Aquatic Recreation</span>
+        <div class="act-overlay">
+          <p>Students enjoy supervised swimming sessions to de-stress and energize after intense academic focus.</p>
+        </div>
+      </div>
+      <div class="act-card">
+        <span class="act-icon">⚽</span>
+        <span class="act-title">Football</span>
+        <span class="act-tag">Team Sports</span>
+        <div class="act-overlay">
+          <p>Friendly football matches foster teamwork, strategic thinking, and physical fitness among students.</p>
+        </div>
+      </div>
+      <div class="act-card">
+        <span class="act-icon">📸</span>
+        <span class="act-title">Photography</span>
+        <span class="act-tag">Creative Arts</span>
+        <div class="act-overlay">
+          <p>Photography sessions ignite creativity, train observational skills, and help students capture their journey.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ ACHIEVEMENTS ═══════════════════════════════════ -->
+<section id="achievements">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Our Impact</div>
+      <h2 class="section-title">The <span class="accent">Numbers</span> That <span class="italic-accent">Tell Our Story</span></h2>
+    </div>
+    <div class="achieve-grid reveal">
+      <div class="achieve-card">
+        <span class="achieve-icon">🎓</span>
+        <div class="achieve-num" data-target="300">0</div>
+        <div class="achieve-label">Students Mentored</div>
+      </div>
+      <div class="achieve-card">
+        <span class="achieve-icon">📚</span>
+        <div class="achieve-num" data-target="10">0</div>
+        <div class="achieve-label">Subjects Offered</div>
+      </div>
+      <div class="achieve-card">
+        <span class="achieve-icon">🌍</span>
+        <div class="achieve-num" data-target="5">0</div>
+        <div class="achieve-label">Countries Reached</div>
+      </div>
+      <div class="achieve-card">
+        <span class="achieve-icon">⭐</span>
+        <div class="achieve-num" data-target="95">0%</div>
+        <div class="achieve-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ SCHOLARSHIP ═══════════════════════════════════ -->
+<section id="scholarship">
+  <div class="container">
+    <div class="scholarship-inner reveal">
+      <div class="scholarship-badge">🏅 Scholarship Opportunity</div>
+      <h2 class="scholarship-title">The <span style="color:var(--gold)">Citadel Excellence</span> Scholarship</h2>
+      <p class="scholarship-desc">
+        We believe no brilliant student should be held back by financial barriers. Each intake, Citadel Academy awards partial tuition scholarships to outstanding students who demonstrate academic promise, integrity, and commitment. Apply today and let your potential shine.
+      </p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="#contact" class="btn-primary">Apply for Scholarship ✦</a>
+        <a href="#contact" class="btn-secondary">Learn More →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ ROADMAP ═══════════════════════════════════ -->
+<section id="roadmap">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:4rem;">
+      <div class="section-eyebrow">Your Path</div>
+      <h2 class="section-title">Your <span class="accent">Success</span> <span class="italic-accent">Roadmap</span></h2>
+      <p class="section-body">From enrollment to academic transformation — here's what your Citadel journey looks like.</p>
+    </div>
+    <div class="roadmap-steps reveal">
+      <div class="roadmap-step">
+        <div class="step-marker"><div class="step-circle">1</div></div>
+        <div class="step-body">
+          <div class="step-title">Inquire & Enroll</div>
+          <div class="step-desc">Contact us via WhatsApp, call, or our online form. Choose your program — local tuition, online tutoring, or mentorship. We'll walk you through every detail.</div>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-marker"><div class="step-circle">2</div></div>
+        <div class="step-body">
+          <div class="step-title">Assessment & Placement</div>
+          <div class="step-desc">We assess your current academic level to place you in the right group and customize your learning plan for maximum impact.</div>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-marker"><div class="step-circle">3</div></div>
+        <div class="step-body">
+          <div class="step-title">Learn, Grow & Recreate</div>
+          <div class="step-desc">Engage in expert-led tuition sessions, personal mentorship, and fun recreational activities that refresh your mind and build lasting bonds.</div>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-marker"><div class="step-circle">4</div></div>
+        <div class="step-body">
+          <div class="step-title">Progress Reviews</div>
+          <div class="step-desc">Regular academic progress checks and parent/guardian updates to ensure you stay on track and constantly improving.</div>
+        </div>
+      </div>
+      <div class="roadmap-step">
+        <div class="step-marker"><div class="step-circle">5</div></div>
+        <div class="step-body">
+          <div class="step-title">Excel & Transform</div>
+          <div class="step-desc">Graduate each term with improved grades, greater confidence, and a powerful mentor by your side — ready to conquer any examination.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ TESTIMONIALS ═══════════════════════════════════ -->
+<section id="testimonials">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Student Stories</div>
+      <h2 class="section-title">Words from Our <span class="accent">Citadel</span> <span class="italic-accent">Community</span></h2>
+      <p class="section-body">Hear from the students, parents, and international learners whose lives were transformed by the Citadel experience.</p>
+    </div>
+    <div class="testimonials-grid reveal">
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">My daughter struggled with Mathematics before joining Citadel. After just one holiday term, she moved from a D to a B+. The teachers here don't just teach — they inspire. We are forever grateful.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">👩</div>
+          <div>
+            <div class="testi-name">Margaret Achieng</div>
+            <div class="testi-role">Parent · Kisumu, Kenya</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">I was studying in the UK and struggling with my IGCSE Physics. Booking online sessions with Citadel was the best decision I made. Mr. Akello's explanations are crystal clear, and the flexibility fits my schedule perfectly.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">👦</div>
+          <div>
+            <div class="testi-name">David Otieno</div>
+            <div class="testi-role">International Student · London, UK</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-quote">"</div>
+        <div class="testi-stars">★★★★★</div>
+        <div class="testi-text">The mentorship sessions changed how I think about my future. I came in defeated and left with a study plan, goals, and confidence I never had before. Citadel Academy is not just a tuition center — it's a life-changer.</div>
+        <div class="testi-author">
+          <div class="testi-avatar">👧</div>
+          <div>
+            <div class="testi-name">Sheila Wanjiku</div>
+            <div class="testi-role">Form 4 Student · Nairobi, Kenya</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ BLOG ═══════════════════════════════════ -->
+<section id="blog">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Academic Insights</div>
+      <h2 class="section-title">Study <span class="accent">Tips</span> &amp; <span class="italic-accent">Resources</span></h2>
+      <p class="section-body">Expert advice from our teaching faculty to sharpen your academic edge, even between sessions.</p>
+    </div>
+    <div class="blog-grid reveal">
+      <div class="blog-card">
+        <div class="blog-thumb">📝</div>
+        <div class="blog-body">
+          <div class="blog-cat">KCSE Preparation</div>
+          <div class="blog-title">7 Proven Strategies to Ace Your KCSE Mathematics Paper</div>
+          <div class="blog-excerpt">Master these time-tested approaches from Citadel's mathematics specialists and watch your exam confidence soar.</div>
+          <div class="blog-meta"><span>✦ Vincent Tinyo</span><span>5 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background: linear-gradient(135deg, #1a3560, #0f2040);">⚡</div>
+        <div class="blog-body">
+          <div class="blog-cat">Study Science</div>
+          <div class="blog-title">How Physical Exercise Before Study Boosts Brain Performance</div>
+          <div class="blog-excerpt">The neuroscience behind Citadel's recreation-first approach — and why it's producing remarkable academic results.</div>
+          <div class="blog-meta"><span>✦ Felix Akello</span><span>4 min read</span></div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <div class="blog-thumb" style="background: linear-gradient(135deg, #2d1b5e, #1a1040);">🌍</div>
+        <div class="blog-body">
+          <div class="blog-cat">International Students</div>
+          <div class="blog-title">How to Maintain Kenyan Academic Standards While Studying Abroad</div>
+          <div class="blog-excerpt">Practical guidance for diaspora students staying connected to KCSE and national curriculum standards via online tutoring.</div>
+          <div class="blog-meta"><span>✦ Catherine Mutie</span><span>6 min read</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FAQ ═══════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="text-center">
+      <div class="section-eyebrow">Have Questions?</div>
+      <h2 class="section-title">Frequently <span class="accent">Asked</span> <span class="italic-accent">Questions</span></h2>
+      <p class="section-body">Everything you need to know about enrolling, attending, and thriving at Citadel Academy.</p>
+    </div>
+    <div class="faq-grid reveal">
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do I enroll my child in the holiday tuition program?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">Simply contact us via WhatsApp on 0728 528 654 or fill out our online inquiry form. Our team will guide you through the registration process and confirm your child's placement within 24 hours.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What subjects are covered in the holiday tuition?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">We cover all major KCSE subjects: Mathematics, Physics, Geography, History, English, Literature in English, Kiswahili, CRE, Computer Studies, and French — all taught by subject specialists.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How do the online tutoring sessions work?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">Online sessions are conducted live via Zoom or Google Meet. Once enrolled, you'll receive a scheduled meeting link. Sessions are interactive, personalized, and can be recorded for review at your convenience.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can international students join the holiday tuition in person?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">Yes! International students and diaspora families are welcome to attend in person at our Bondo Township location. We recommend reaching out early to plan accommodation and logistics well in advance.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          How are payments made for the programs?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">Payments for local programs are accepted via M-Pesa. For international online tutoring, we accept M-Pesa, bank transfers, and digital payment platforms. Full payment details are provided upon enrollment confirmation.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Is the mentorship program available online?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">Yes. Our mentorship sessions are available both in-person at our Bondo Township campus and online via video call. We accommodate the needs and location of each client. Note that transport and meals for in-person sessions are excluded from the KES 5,000 fee.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What is the schedule for recreational activities?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">Recreation — including swimming, football, and photography — takes place after the day's academic sessions. The schedule is structured to ensure students are refreshed and energized while still maintaining rigorous academic focus.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Do you offer KCSE-specific preparation?
+          <em class="faq-icon">+</em>
+        </div>
+        <div class="faq-answer">Absolutely. Our entire local holiday tuition curriculum is designed around KCSE requirements. Our tutors use past papers, marking schemes, and targeted revision strategies proven to improve student performance in national exams.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ CONTACT ═══════════════════════════════════ -->
+<section id="contact">
+  <div class="container">
+    <div class="text-center" style="margin-bottom:4rem;">
+      <div class="section-eyebrow">Get In Touch</div>
+      <h2 class="section-title">Start Your <span class="accent">Citadel</span> <span class="italic-accent">Journey Today</span></h2>
+      <p class="section-body">Whether you're enrolling locally or booking an online session from abroad — we're ready to help you take the next step.</p>
+    </div>
+    <div class="contact-grid reveal">
+      <div>
+        <div class="contact-info">
+          <div class="contact-item">
+            <span class="ci-icon">📍</span>
+            <div>
+              <div class="ci-label">Location</div>
+              <div class="ci-value">Bondo Township, Siaya County, Kenya</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📱</span>
+            <div>
+              <div class="ci-label">WhatsApp & Phone</div>
+              <div class="ci-value"><a href="tel:+254728528654" style="color:inherit; text-decoration:none;">+254 728 528 654</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">📧</span>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-value">info@citadelacademy.co.ke</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">🕐</span>
+            <div>
+              <div class="ci-label">Office Hours</div>
+              <div class="ci-value">Mon – Sat: 8:00 AM – 6:00 PM EAT</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <span class="ci-icon">💻</span>
+            <div>
+              <div class="ci-label">Online Classes</div>
+              <div class="ci-value">Zoom & Google Meet · Flexible time zones</div>
+            </div>
+          </div>
+        </div>
+        <div class="map-placeholder">
+          <span>🗺️</span>
+          <span>Bondo Township, Siaya County, Kenya<br/>Click to view on Google Maps</span>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3 style="font-family:'Cinzel',serif; margin-bottom:1.5rem; font-size:1.2rem;">Send Us an Inquiry</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Your first name" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Your last name" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>Phone / WhatsApp</label>
+          <input type="tel" placeholder="+254 7XX XXX XXX" />
+        </div>
+        <div class="form-group">
+          <label>I'm interested in</label>
+          <select>
+            <option value="">Select a program</option>
+            <option>Holiday Tuition Program (KES 1,500/week)</option>
+            <option>International Online Tutoring (USD 20/hr)</option>
+            <option>Mentorship Program (KES 5,000)</option>
+            <option>Scholarship Application</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell us about yourself and what you're hoping to achieve..."></textarea>
+        </div>
+        <button type="button" class="btn-primary" style="width:100%; justify-content:center; font-size:1rem; padding:1rem;" onclick="handleSubmit()">
+          Send Inquiry ✦
+        </button>
+        <p style="font-size:0.78rem; color:rgba(255,255,255,0.4); text-align:center; margin-top:0.8rem;">
+          We respond within 24 hours. Your data is safe with us.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ FOOTER ═══════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#hero" class="nav-logo" style="margin-bottom:1rem; display:inline-flex;">
+        <div class="logo-mark">CA</div>
+        <div class="logo-text">
+          <span>Citadel Academy</span>
+          <span>Excellence · Mentorship · Transformation</span>
+        </div>
+      </a>
+      <p class="footer-tagline">Empowering future scholars beyond the classroom — from Bondo Township, Kenya to the world.</p>
+      <div class="footer-socials">
+        <a href="#" class="social-btn" title="Facebook">📘</a>
+        <a href="#" class="social-btn" title="Instagram">📸</a>
+        <a href="https://wa.me/254728528654" class="social-btn" title="WhatsApp">💬</a>
+        <a href="#" class="social-btn" title="YouTube">📺</a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <ul class="footer-links">
+        <li><a href="#programs">Holiday Tuition</a></li>
+        <li><a href="#programs">Online Tutoring</a></li>
+        <li><a href="#programs">Mentorship</a></li>
+        <li><a href="#scholarship">Scholarships</a></li>
+        <li><a href="#activities">Student Activities</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Subjects</h4>
+      <ul class="footer-links">
+        <li><a href="#programs">Mathematics</a></li>
+        <li><a href="#programs">Physics</a></li>
+        <li><a href="#programs">English & Literature</a></li>
+        <li><a href="#programs">Geography & History</a></li>
+        <li><a href="#programs">Kiswahili & CRE</a></li>
+        <li><a href="#programs">Computer & French</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul class="footer-links">
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#teachers">Our Teachers</a></li>
+        <li><a href="#testimonials">Student Stories</a></li>
+        <li><a href="#blog">Study Tips</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-disclaimer">This institution operates independently and is committed to quality academic mentorship and student development. All programs are designed to serve local and international high school students with excellence and integrity.</p>
+    <p class="footer-copy">© 2025 Citadel Academy. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- FLOATING ELEMENTS -->
+<a href="https://wa.me/254728528654" class="whatsapp-float" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<div class="sticky-cta" id="stickyCta">
+  <a href="#contact" class="sticky-btn">✦ Enroll Now</a>
+  <a href="#programs" class="sticky-btn" style="background:rgba(255,255,255,0.1); color:var(--white); border:1px solid rgba(255,255,255,0.2);">View Programs</a>
+</div>
+
+<!-- ─── SCRIPTS ─── -->
+<script>
+  // Scroll Progress Bar
+  window.addEventListener('scroll', () => {
+    const scrolled = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100;
+    document.getElementById('progress-bar').style.width = scrolled + '%';
+
+    // Navbar
+    const nav = document.getElementById('navbar');
+    if (window.scrollY > 80) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+
+    // Sticky CTA
+    const stickyCta = document.getElementById('stickyCta');
+    if (window.scrollY > 600) {
+      stickyCta.classList.add('visible');
+    } else {
+      stickyCta.classList.remove('visible');
+    }
+  });
+
+  // Mobile Menu
+  function openMobileMenu() {
+    document.getElementById('mobileMenu').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeMobileMenu() {
+    document.getElementById('mobileMenu').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // Dark/Light Toggle
+  let isLight = false;
+  function toggleMode() {
+    isLight = !isLight;
+    document.body.classList.toggle('light-mode', isLight);
+    document.querySelector('.dark-toggle').textContent = isLight ? '🌙' : '☀️';
+  }
+
+  // FAQ Accordion
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const wasOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!wasOpen) item.classList.add('open');
+  }
+
+  // Scroll Reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Animated Counters
+  function animateCounter(el) {
+    const target = parseInt(el.getAttribute('data-target'));
+    const suffix = el.textContent.includes('%') ? '%' : (el.textContent.includes('+') ? '+' : '');
+    const duration = 2000;
+    const start = performance.now();
+    function update(now) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      const current = Math.floor(eased * target);
+      el.textContent = current + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const counters = entry.target.querySelectorAll('[data-target]');
+        counters.forEach(animateCounter);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.hero-stats, .achieve-grid').forEach(el => counterObserver.observe(el));
+
+  // Form Submit
+  function handleSubmit() {
+    const btn = event.target;
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+    setTimeout(() => {
+      btn.textContent = '✓ Inquiry Sent! We\'ll be in touch soon.';
+      btn.style.background = 'linear-gradient(135deg, #22c55e, #16a34a)';
+      btn.style.opacity = '1';
+    }, 1500);
+  }
+
+  // Map placeholder click
+  document.querySelector('.map-placeholder').addEventListener('click', () => {
+    window.open('https://maps.google.com/?q=Bondo+Township+Siaya+Kenya', '_blank');
+  });
+  document.querySelector('.map-placeholder').style.cursor = 'pointer';
+</script>
+</body>
+</html>
